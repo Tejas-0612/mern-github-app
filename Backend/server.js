@@ -4,6 +4,7 @@ import cors from "cors";
 
 import userRoute from "./routes/user.route.js";
 import exploreRoute from "./routes/explore.route.js";
+import connectDB from "./db/index.js";
 
 const PORT = 5000;
 
@@ -21,4 +22,5 @@ app.use("/api/explore", exploreRoute);
 
 app.listen(PORT, () => {
   console.log(`Server started on http://localhost:${PORT}`);
+  connectDB();
 });
