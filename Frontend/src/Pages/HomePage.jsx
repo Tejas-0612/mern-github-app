@@ -5,6 +5,7 @@ import SortRepos from "../components/SortRepos";
 import ProfileInfo from "../components/ProfileInfo";
 import toast from "react-hot-toast";
 import Spinner from "../components/Spinner";
+import { useAuthContext } from "../context/AuthContext";
 
 const HomePage = () => {
   const [userProfile, setUserProfile] = useState(null);
@@ -12,16 +13,16 @@ const HomePage = () => {
   const [loading, setLoading] = useState(false);
 
   const [sortType, setSortType] = useState("recent");
+  const { authUser } = useAuthContext();
 
   const getUserProfileAndRepos = useCallback(
-    async (username = "Tejas-0612") => {
+    async (username = authUser.username) => {
       setLoading(true);
       try {
         const userResp = await fetch(
           `http://localhost:5000/api/users/profile/${username}`
         );
         const { repos, userProfile } = await userResp.json();
-        console.log(repos);
         setUserProfile(userProfile);
 
         setRepos(repos);

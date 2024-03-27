@@ -6,9 +6,10 @@ import { MdOutlineExplore } from "react-icons/md";
 import { PiSignInBold } from "react-icons/pi";
 import { MdEditDocument } from "react-icons/md";
 import Logout from "./Logout";
+import { useAuthContext } from "../context/AuthContext";
 
 const Sidebar = () => {
-  const authUser = true;
+  const { authUser } = useAuthContext();
   return (
     <aside
       className="bg-glass flex flex-col items-center min-w-12 sm:w-16 sticky top-0 left-0 h-screen py-8
@@ -41,6 +42,24 @@ const Sidebar = () => {
             className="p-1.5 flex justify-center transition-colors duration-200 rounded-lg hover:bg-gray-800"
           >
             <MdOutlineExplore size={25} />
+          </Link>
+        )}
+
+        {!authUser && (
+          <Link
+            to="/login"
+            className="p-1.5 focus:outline-nones transition-colors duration-200 rounded-lg hover:bg-gray-800"
+          >
+            <PiSignInBold size={25} />
+          </Link>
+        )}
+
+        {!authUser && (
+          <Link
+            to="/signup"
+            className="p-1.5 focus:outline-nones transition-colors duration-200 rounded-lg hover:bg-gray-800"
+          >
+            <MdEditDocument size={25} />
           </Link>
         )}
 

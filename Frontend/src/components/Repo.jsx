@@ -5,7 +5,6 @@ import { PROGRAMMING_LANGUAGES } from "../utils/constants";
 import toast from "react-hot-toast";
 
 const Repo = ({ repo }) => {
-  console.log(repo);
   const formattedDate = formatDate(repo.created_at);
 
   const handleCloneClick = async () => {
