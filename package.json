@@ -5,10 +5,12 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon Backend/server.js"
+    "dev": "nodemon Backend/server.js",
+    "build": "npm install && npm install --prefix Frontend && npm run build --prefix Frontend",
+    "start": "node Backend/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tejas Shinde",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

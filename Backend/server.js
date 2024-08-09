@@ -18,7 +18,10 @@ const corsOptions = {
 dotenv.config();
 
 const app = express();
+
+// no need to add cors as frontend & backend both are on same domain
 app.use(cors(corsOptions));
+
 app.use(
   session({ secret: "keyboard cat", resave: false, saveUninitialized: false })
 );
@@ -34,6 +37,12 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/explore", exploreRoute);
+
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`Server started on http://localhost:${PORT}`);
