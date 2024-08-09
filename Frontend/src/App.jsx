@@ -14,11 +14,14 @@ function App() {
   const { authUser, loading } = useAuthContext();
   if (loading) return null;
   return (
-    <div className="flex">
+    <div className="flex container gradient-background from-slate-900 to-slate-700">
       <Sidebar />
       <div className="max-w-5xl my-5 text-white mx-auto transition-all duration-300 flex-1">
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/"
+            element={authUser ? <HomePage /> : <Navigate to={"/login"} />}
+          />
           <Route
             path="/login"
             element={!authUser ? <LoginPage /> : <Navigate to={"/"} />}

@@ -3,33 +3,27 @@
 @tailwind utilities;
 
 body {
-  background: linear-gradient(
-      to bottom right,
-      rgba(0, 0, 0, 0.9),
-      rgba(0, 0, 0, 0.4)
-    ),
-    url("/bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: white;
-}
-
-/* body {
-  background-color: #111927;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-size: 180% 180%;
+  background: linear-gradient(135deg, #2b2e35, #1c1e23);
+  animation: gradient-animation 24s ease infinite;
   background-image: radial-gradient(
-      at 47% 33%,
-      hsl(162, 77%, 40%) 0,
-      transparent 59%
-    ),
-    radial-gradient(at 82% 65%, hsl(218, 39%, 11%) 0, transparent 55%);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: white;
-} */
+    circle 815px at 23.4% -21.8%,
+    rgba(9, 29, 85, 1) 0.2%,
+    rgba(0, 0, 0, 1) 100.2%
+  );
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 /* dark mode looking scrollbar */
 ::-webkit-scrollbar {
