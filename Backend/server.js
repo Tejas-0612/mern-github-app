@@ -33,10 +33,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get("/", (req, res) => {
-  res.send("Server is ready");
-});
-
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/explore", exploreRoute);
