@@ -19,9 +19,7 @@ const HomePage = () => {
     async (username = authUser.username) => {
       setLoading(true);
       try {
-        const userResp = await fetch(
-          `http://localhost:5000/api/users/profile/${username}`
-        );
+        const userResp = await fetch(`/api/users/profile/${username}`);
         const { repos, userProfile } = await userResp.json();
         setUserProfile(userProfile);
 
