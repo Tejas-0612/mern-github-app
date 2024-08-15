@@ -9,7 +9,7 @@
 
 </div>
 
-### <span name="demo">🚀 Demo</span> - 🔗<a href="https://mern-github-app-33t2.onrender.com" target="\_blank">click here</a>
+### <span name="demo">🚀 Demo</span> - 🔗<a href="https://mern-github-app-33t2.onrender.com" target="_blank">click here</a>
 
 ## 📋 <a name="table">Table of Contents</a>
 
